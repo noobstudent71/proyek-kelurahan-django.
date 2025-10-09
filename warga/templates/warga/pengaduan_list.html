@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semua Pengaduan</title>
+</head>
+<body>
+    <h1>Daftar Semua Pengaduan</h1>
+    
+    <ul>
+        {% for pengaduan in object_list %}
+        <li>
+            <strong>{{ pengaduan.judul }}</strong>
+            <p>
+                Dilaporkan oleh: <strong>{{ pengaduan.pelapor.nama_lengkap }}</strong>
+            </p>
+            <p>{{ pengaduan.deskripsi }}</p>
+            <small>Status: {{ pengaduan.get_status_display }}</small>
+        </li>
+        <hr>
+        {% empty %}
+        <li>Belum ada pengaduan yang dibuat oleh warga.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

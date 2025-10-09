@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daftar Warga</title>
+</head>
+<body>
+    <h1>Daftar Warga</h1>
+    <ul>
+        {% for warga in object_list %}
+        <li>
+            <a href="{% url 'warga-detail' warga.pk %}">{{ warga.nama_lengkap }}</a> - NIK: {{ warga.nik }} - alamat: {{ warga.alamat }} - Nomor telepon: {{ warga.nomer_telfon }} - tanggal registrasi: {{ warga.tanggal_regsitrasi }}
+        </li>
+        {% empty %}
+        <li>Belum ada data warga yang terdaftar.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+<hr>
+<h2>Daftar Pengaduan oleh {{ object.nama_lengkap }}</h2>
+
+<ul>
+    {% for aduan in object.pengaduan.all %}
+        <li>
+            <strong>{{ aduan.judul }}</strong> (Status: {{ aduan.get_status_display }})
+            <p>{{ aduan.deskripsi }}</p>
+        </li>
+    {% empty %}
+        <li>Warga ini belum pernah membuat pengaduan.</li>
+    {% endfor %}
+</ul>

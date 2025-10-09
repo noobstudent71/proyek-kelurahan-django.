@@ -1,0 +1,20 @@
+# Virtual Environment
+venv/
+env/
+*.env
+
+# Database
+db.sqlite3
+*.sql
+
+# File Python cache
+__pycache__/
+*.pyc
+
+# File media dan statis (jika dikumpulkan)
+/static/
+/media/
+
+# File spesifik OS
+.DS_Store
+Thumbs.db
