@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>Daftar Semua Pengaduan</h1>
+
+    <a href="{% url 'pengaduan-tambah' %}">Buat Pengaduan Baru</a>
+    <hr>
     
     <ul>
         {% for pengaduan in object_list %}
@@ -16,6 +19,7 @@
                 Dilaporkan oleh: <strong>{{ pengaduan.pelapor.nama_lengkap }}</strong>
             </p>
             <p>{{ pengaduan.deskripsi }}</p>
+            
             <small>Status: {{ pengaduan.get_status_display }}</small>
         </li>
         <hr>
