@@ -16,11 +16,15 @@
         <li>
             <strong>{{ pengaduan.judul }}</strong>
             <p>
-                Dilaporkan oleh: <strong>{{ pengaduan.pelapor.nama_lengkap }}</strong>
+                Dilaporkan oleh: <strong>{{ pengaduan.pelopor.nama_lengkap }}</strong>
             </p>
             <p>{{ pengaduan.deskripsi }}</p>
-            
             <small>Status: {{ pengaduan.get_status_display }}</small>
+            
+            <br>
+            
+            <a href="{% url 'pengaduan-edit' pengaduan.pk %}">Edit</a> | 
+            <a href="{% url 'pengaduan-hapus' pengaduan.pk %}">Hapus</a>
         </li>
         <hr>
         {% empty %}
